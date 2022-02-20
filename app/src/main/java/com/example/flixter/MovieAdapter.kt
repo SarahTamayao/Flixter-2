@@ -1,7 +1,7 @@
 package com.example.flixter
 
 import android.content.Context
-import android.util.Log
+import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class MovieAdapter(private val context: Context, private val movies: List<Movie>)
     : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
@@ -34,7 +35,17 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
         fun bind(movie: Movie) {
             tvTitle.text = movie.title
             tvOverview.text = movie.overview
-            Glide.with(context).load(movie.posterImageUrl).into(ivPoster)
+
+            val orientation = context.resources.configuration.orientation
+            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                Glide.with(context).load(movie.posterImageUrl).into(ivPoster)
+            } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                Glide.with(context)
+                    .load(movie.posterBackdropUrl)
+                    .transform(RoundedCorners(55))
+                    .placeholder(R.drawable.placeholder)
+                    .into(ivPoster)
+            }
         }
     }
 }
