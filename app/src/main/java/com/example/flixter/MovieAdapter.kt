@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class MovieAdapter(private val context: Context, private val movies: List<Movie>)
@@ -42,7 +43,7 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
             } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 Glide.with(context)
                     .load(movie.posterBackdropUrl)
-                    .transform(RoundedCorners(55))
+                    .transform(RoundedCorners(30))
                     .placeholder(R.drawable.placeholder)
                     .into(ivPoster)
             }

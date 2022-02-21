@@ -5,11 +5,12 @@ import org.json.JSONArray
 data class Movie(
     val movieId: Int,
     private val posterPath: String,
+    private val backdropPath: String,
     val title: String,
     val overview: String
 ) {
     val posterImageUrl = "https://image.tmdb.org/t/p/w342$posterPath"
-    val posterBackdropUrl = "https://image.tmdb.org/t/p/w780$posterPath"
+    val posterBackdropUrl = "https://image.tmdb.org/t/p/w780$backdropPath"
 
     companion object {
         fun fromJsonArray(movieJsonArray: JSONArray) : List<Movie> {
@@ -21,6 +22,7 @@ data class Movie(
                     Movie(
                         movieId = movieJson.getInt("id"),
                         posterPath = movieJson.getString("poster_path"),
+                        backdropPath = movieJson.getString("backdrop_path"),
                         title = movieJson.getString("title"),
                         overview = movieJson.getString("overview")
                     )

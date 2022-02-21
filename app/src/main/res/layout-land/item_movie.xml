@@ -8,10 +8,11 @@
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="500dp"
-        android:layout_height="250dp"
-        android:scaleType="fitXY"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -44,10 +45,17 @@
         android:ellipsize="end"
         android:maxLines="5"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@id/ivPoster"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivPoster"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:text="The Templeton brothers - Tim and his Boss baby have become adults and dfited away form each baby with a cutting-edge approach and about to bring them together again.. and inspired business." />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
