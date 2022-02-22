@@ -43,7 +43,6 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
             } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 Glide.with(context)
                     .load(movie.posterBackdropUrl)
-                    .transform(RoundedCorners(30))
                     .placeholder(R.drawable.placeholder)
                     .into(ivPoster)
             }
