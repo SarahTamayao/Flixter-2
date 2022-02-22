@@ -7,7 +7,8 @@ data class Movie(
     private val posterPath: String,
     private val backdropPath: String,
     val title: String,
-    val overview: String
+    val overview: String,
+    val voteAverage: Double
 ) {
     val posterImageUrl = "https://image.tmdb.org/t/p/w342$posterPath"
     val posterBackdropUrl = "https://image.tmdb.org/t/p/w780$backdropPath"
@@ -24,7 +25,8 @@ data class Movie(
                         posterPath = movieJson.getString("poster_path"),
                         backdropPath = movieJson.getString("backdrop_path"),
                         title = movieJson.getString("title"),
-                        overview = movieJson.getString("overview")
+                        overview = movieJson.getString("overview"),
+                        voteAverage = movieJson.getDouble("vote_average")
                     )
                 )
             }
