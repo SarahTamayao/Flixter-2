@@ -27,7 +27,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            tools:text="Boss Baby: Family Business"
+            android:textStyle="bold"
+            android:textColor="?android:textColorPrimary"
+            tools:text="Scream"
             android:text="@{movie.title}"
             />
 
@@ -54,5 +56,6 @@
             android:layout_marginEnd="8dp"
             tools:text="@string/movie_overview_example"
             android:text="@{movie.overview}"/>
+
     </LinearLayout>
 </layout>
