@@ -1,15 +1,18 @@
 package com.example.flixter
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
+const val MOVIE_EXTRA = "MOVIE_EXTRA"
 class MovieAdapter(private val context: Context, private val movies: List<Movie>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -66,11 +69,22 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
         }
     }
 
-    class ViewHolderPopular(v: View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolderPopular(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
         val ivBackdrop: ImageView
 
         init {
+            itemView.setOnClickListener(this)
+
             ivBackdrop = v.findViewById(R.id.ivBackdrop)
+        }
+
+        override fun onClick(p0: View?) {
+            val movie = movies[adapterPosition]
+
+            // Use the intent system to navigate to the activity
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra(MOVIE_EXTRA, movie)
+            context.startActivity(intent)
         }
     }
 
@@ -83,15 +97,26 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
             .into(vh.ivBackdrop)
     }
 
-    class ViewHolderUnpopular(v: View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolderUnpopular(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
         val ivPoster: ImageView
         val tvTitle: TextView
         val tvOverview: TextView
 
         init {
+            itemView.setOnClickListener(this)
+
             ivPoster = v.findViewById(R.id.ivPoster)
             tvTitle = v.findViewById(R.id.tvTitle)
             tvOverview = v.findViewById(R.id.tvOverview)
+        }
+
+        override fun onClick(p0: View?) {
+            val movie = movies[adapterPosition]
+
+            // Use the intent system to navigate to the activity
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra(MOVIE_EXTRA, movie)
+            context.startActivity(intent)
         }
     }
 

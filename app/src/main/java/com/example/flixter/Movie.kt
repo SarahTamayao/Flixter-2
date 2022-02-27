@@ -1,7 +1,10 @@
 package com.example.flixter
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import org.json.JSONArray
 
+@Parcelize
 data class Movie(
     val movieId: Int,
     private val posterPath: String,
@@ -9,7 +12,7 @@ data class Movie(
     val title: String,
     val overview: String,
     val voteAverage: Double
-) {
+) : Parcelable {
     val posterImageUrl = "https://image.tmdb.org/t/p/w342$posterPath"
     val posterBackdropUrl = "https://image.tmdb.org/t/p/w780$backdropPath"
 

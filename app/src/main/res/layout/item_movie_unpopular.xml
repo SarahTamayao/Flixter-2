@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivPoster"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            tools:text="The Templeton brothers - Tim and his Boss baby have become adults and dfited away form each baby with a cutting-edge approach and about to bring them together again.. and inspired business." />
+            tools:text="@string/movie_overview_example" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
   </androidx.cardview.widget.CardView>
