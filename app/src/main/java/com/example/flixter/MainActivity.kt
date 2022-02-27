@@ -15,7 +15,6 @@ private const val NOW_PLAYING_URL =
     "https://api.themoviedb.org/3/movie/now_playing?api_key=6501f1a9ad206c6e30a16a1114f4feca"
 
 class MainActivity : AppCompatActivity() {
-
     private val movies = mutableListOf<Movie>()
     private lateinit var rvMovies: RecyclerView
 

@@ -11,7 +11,7 @@ data class Movie(
     private val backdropPath: String,
     val title: String,
     val overview: String,
-    val voteAverage: Double
+    val voteAverage: Float
 ) : Parcelable {
     val posterImageUrl = "https://image.tmdb.org/t/p/w342$posterPath"
     val posterBackdropUrl = "https://image.tmdb.org/t/p/w780$backdropPath"
@@ -29,7 +29,7 @@ data class Movie(
                         backdropPath = movieJson.getString("backdrop_path"),
                         title = movieJson.getString("title"),
                         overview = movieJson.getString("overview"),
-                        voteAverage = movieJson.getDouble("vote_average")
+                        voteAverage = movieJson.getDouble("vote_average").toFloat()
                     )
                 )
             }
